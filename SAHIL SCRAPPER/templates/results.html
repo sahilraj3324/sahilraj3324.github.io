@@ -1,0 +1,192 @@
+{% load static %}
+<html>
+
+<head>
+    <title>Stuk</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Ubuntu:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Titillium+Web:wght@200&family=Ubuntu:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans&family=Lobster&family=Poppins:wght@300&family=Rubik+Wet+Paint&family=Source+Sans+Pro&family=Titillium+Web:wght@200&family=Ubuntu:wght@300;500&display=swap');
+
+        body {
+            background-color: #fffefe;
+            /* color: whitesmoke; */
+        }
+        
+        .links {
+            text-decoration: none;
+            color: black;
+        }
+        
+        table {
+            border-radius: 1em;
+        }
+        
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            /* border-radius: 5px; */
+        }
+        
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+            /* border-radius: 5px; */
+        }
+        
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+            color: black;
+        }
+        
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #237bf6;
+            /* border-radius: 5px; */
+        }
+        
+        .styled-table thead tr {
+            background-color: #0ea1fc;
+            color: #ffffff;
+            text-align: left;
+            /* border-radius: 5px; */
+        }
+        
+        .row {
+            background-color: #14a1ff;
+            color: rgb(252, 252, 252);
+            /* border-radius: 50px; */
+        }
+        
+
+        }
+        
+          #container{
+                text-align: center;
+                position: fixed;
+                padding: 12px 10px 0px 10px;
+                bottom: 0;
+                width: 100%;
+                /* Height of the footer*/ 
+                height: 40px;
+                background: black;
+                color: white;
+                font-family: 'Ubuntu', sans-serif;
+    
+          }
+          *{
+
+padding:0;
+margin: 0;
+text-decoration: none;
+list-style: none;
+box-sizing: border-box;
+}
+body{
+font-family:'Courier New', Courier, monospace ;
+
+}
+nav{
+background: #0082e6  ;
+height: 80px;
+width: 100%;
+}
+label.logo{
+
+color: white;
+font-size: 35px;
+line-height: 80px;
+padding: 0 100px;
+font-weight: bold;
+}
+nav ul{
+float: right;
+margin-right: 20px;
+}
+nav ul li{
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
+nav ul li a{
+color: white;
+font-size: 17px;
+padding: 7px 13px;
+text-transform: uppercase;
+}
+a.active,a:hover {
+background: #1b9bff;
+transition: .1s;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <label class="logo">Stuk</label>
+        <ul>
+           
+            <li><a href="#" id="active">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="about.html">About</a></li>
+            
+        </ul>
+        
+    
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    
+    <center>
+        <table class="styled-table">
+            <thread>
+                <tr class="row">
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for n, p in data.items %}
+                <tr class="active-row">
+                    <td><div class=" image">
+                        <a href="{{p.1}}" target="_blank" class="links">
+                            
+                                <img  src={{n}}>
+                            
+                        </a>
+                    </div>
+                    </td>
+                    <td>
+                        <a href="{{p.1}}" target="_blank" class="links">
+                            {{p.2}}
+                        </a>
+                    </td>
+                    <td>
+                        {{p.0}}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    <!-- <p></p> -->
+    {% comment %} footer {% endcomment %}
+    
+        
+            <div id="container">
+                    THE  SAHIL RAJ  PRODUCTION ©
+            </div>
+   
+    
+    
+</body>
+
+</html>
